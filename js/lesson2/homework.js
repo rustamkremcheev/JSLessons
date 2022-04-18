@@ -15,3 +15,47 @@
 'use strict';
 
 // Код возьмите из предыдущего домашнего задания
+
+
+let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+
+while (numberOfFilms==''){
+    alert('Вы ввели пустой ответ!');
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+}
+
+let a = prompt('Один из последних просмотренных фильмов?', '');
+
+while (a==''){
+    alert('Вы ввели пустой ответ!');
+    a = +prompt('Один из последних просмотренных фильмов?');
+}
+
+let b = prompt('На сколько оцените его?', '');
+
+while (b==''){
+    alert('Вы ввели пустой ответ!');
+    b = +prompt('На сколько оцените его?');
+}
+     
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: null,
+    genres: [],
+    privat: false
+};
+
+
+if (personalMovieDB.count < 10) {
+    alert("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    alert("Вы классический зритель");
+} else if (personalMovieDB.count > 30) {
+    alert("Вы киноман");
+} else {
+    alert("Произошла ошибка");
+}
+
+console.log(personalMovieDB);
