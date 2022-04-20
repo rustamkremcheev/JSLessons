@@ -35,9 +35,15 @@ console.log(`https://someurl.com/${category}/5`);
 const user = 'Ivan';
 alert(`Hello, ${user}`);
 
+let numberOfFilms;
 
-let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
-console.log(numberOfFilms);
+function start () {
+    while (numberOfFilms == null || numberOfFilms == '' || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?'); 
+    }
+}
+
+start();
 
 const personalMovieDB = {
     count: numberOfFilms,

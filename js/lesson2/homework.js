@@ -19,25 +19,25 @@
 
 let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
 
-while (numberOfFilms==''){
+while (numberOfFilms == '') {
     alert('Вы ввели пустой ответ!');
     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
 }
 
 let a = prompt('Один из последних просмотренных фильмов?', '');
 
-while (a==''){
+while (a == '') {
     alert('Вы ввели пустой ответ!');
     a = +prompt('Один из последних просмотренных фильмов?');
 }
 
 let b = prompt('На сколько оцените его?', '');
 
-while (b==''){
+while (b == '') {
     alert('Вы ввели пустой ответ!');
     b = +prompt('На сколько оцените его?');
 }
-     
+
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -47,15 +47,48 @@ const personalMovieDB = {
     privat: false
 };
 
-
-if (personalMovieDB.count < 10) {
-    alert("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-    alert("Вы классический зритель");
-} else if (personalMovieDB.count > 30) {
-    alert("Вы киноман");
-} else {
-    alert("Произошла ошибка");
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        alert("Просмотрено довольно мало фильмов");
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+        alert("Вы классический зритель");
+    } else if (personalMovieDB.count > 30) {
+        alert("Вы киноман");
+    } else {
+        alert("Произошла ошибка");
+    }
 }
+
+detectPersonalLevel();
+
+/*function showMyDB() {                      //MyVariant
+    if (personalMovieDB.privat == false) {
+        console.log("checkPrivat()");
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDB(personalMovieDB);*/
+
+
+function showMyDB(hidden) {                //MyTeacherLessonVariant
+    if (!hidden) {
+        console.log("checkPrivat()");
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDB(personalMovieDB.privat);
+
+function writeYourGenres() {
+
+    for (let index = 1; index <= 3; index++) {
+
+        personalMovieDB.genres[index - 1] = prompt(`Ваш любимый жанр под номером ${index}`);
+
+    }
+}
+
+writeYourGenres();
 
 console.log(personalMovieDB);
